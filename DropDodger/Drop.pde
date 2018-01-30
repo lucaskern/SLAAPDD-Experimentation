@@ -35,7 +35,7 @@ class Drop
 
   void reStart()
   {
-    xLoc = random(width);
+    xLoc = random(4000);
     yLoc = random(-4000, -20);
   }
 
@@ -95,6 +95,6 @@ class Drop
     fill(255,0,255);
     textFont(f, 30);
     text(powerStr, xLoc + 35, yLoc - 25);
-    
+    rectMode(CORNER);
   }
 }

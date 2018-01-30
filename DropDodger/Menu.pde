@@ -13,7 +13,7 @@ class Menu
     textAlign(CENTER);
     fill(0);
     textFont(d, 100);
-    text("DROP DODGER", width / 2, height / 7);
+    text("NOTIFY", width / 2, height / 7);
 
     //Instructions
     textFont(d, 50);
@@ -30,7 +30,7 @@ class Menu
     
     //Credits
     textFont(d, 30);
-    text("Game Designed By: Lucas Kern", width / 2, height / 1.07);
+    text("Game Designed By: TEAM SLAAPDD", width / 2, height / 1.07);
    
   }
   

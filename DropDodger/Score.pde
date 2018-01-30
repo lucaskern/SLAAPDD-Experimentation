@@ -26,7 +26,7 @@ class Score
 
     textFont(f, 48);
     fill(0);
-    text(timeLayOut + (time++), width - width / 5, 50);
+    text(timeLayOut + (time++), width - width / 5, 5000);
 
     scoreSave = time;
   }
@@ -75,6 +75,10 @@ class Score
       textFont(d, 50);
       text(scoreGreat, width / 2, height / 1.7);
     }
+  }
+  
+  void add() {
+  
   }
 
   void preview()

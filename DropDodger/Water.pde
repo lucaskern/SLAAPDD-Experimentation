@@ -10,7 +10,7 @@ class Water
   Water(int difficulty, float speed)
   {
     dropSpeed = speed;
-    dropNum = 150;
+    dropNum = 50;
 
     waterDrops = new Drop[150];
 
@@ -22,7 +22,7 @@ class Water
       columns[2] = width * .75;
       int laneNum = round(random(2));
       
-      waterDrops[i] = new Drop(columns[laneNum], -150 * i, 6, random(1,6));
+      waterDrops[i] = new Drop(columns[laneNum], -150 * i, 4, random(1,6));
     }
   }
 
@@ -43,7 +43,6 @@ class Water
     }
   }
   
-
   void display()
   {
     for (int i = 0; i < dropNum; i++)

@@ -198,9 +198,9 @@ void draw()
 
 
   //draw two white bars on the sides of the screens
-  fill(255);
-  rect(0, 0, width / 100, height);
-  rect(width - width / 100, 0, width / 100, height);
+  fill(0);
+  rect(0, 0, width / 10, height);
+  rect(width - width / 10, 0, width / 10, height);
   
   //shows the hitbox for the match
   /*
