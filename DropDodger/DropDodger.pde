@@ -211,6 +211,9 @@ void draw()
 }
 
 void mousePressed(){
-  w1.collision();
+  if (w1.collision()) {
+    s1.add();
+  }
+  
   //print("WTF");
 }

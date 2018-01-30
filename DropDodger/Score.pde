@@ -3,6 +3,8 @@ class Score
   //used to keep the score and have a copy to display when you lose
   int time;
   int scoreSave;
+  
+  int score;
 
   //strings that go before the dynamic scores
   String timeLayOut = "Score: ";
@@ -18,7 +20,7 @@ class Score
 
   Score(int currTime)
   {
-    time = currTime;
+    //time = currTime;
   }
 
   void scoreGo()
@@ -26,7 +28,7 @@ class Score
 
     textFont(f, 48);
     fill(0);
-    text(timeLayOut + (time++), width - width / 5, 5000);
+    text(timeLayOut + (score), width - width / 2, 50);
 
     scoreSave = time;
   }
@@ -78,7 +80,7 @@ class Score
   }
   
   void add() {
-  
+    score = score + 10;
   }
 
   void preview()

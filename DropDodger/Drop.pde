@@ -52,11 +52,13 @@ class Drop
     }
   }
 
-  void collision()
+  boolean collision()
   { 
     if (mouseX > xLoc-boxSize && mouseX < xLoc+boxSize && mouseY > yLoc-boxSize && mouseY < yLoc+boxSize) {
       clicked();
+      return true;
     }
+    return false;
   }
   
   void clicked() {

@@ -35,12 +35,17 @@ class Water
   }
 
   //checks to see if any drop is touching the match head
-  void collision()
+  boolean collision()
   {
     for (int i = 0; i < dropNum; i++)
     {
-      waterDrops[i].collision();
+      if (waterDrops[i].collision()) {
+        return true;
+      }
+      
     }
+    
+    return false;
   }
   
   void display()
