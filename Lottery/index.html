@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <canvas id="myCanvas" width="100" height="80" style="border:1px solid #d3d3d3;"> Your browser does not support the HTML5 canvas tag.</canvas>
+    <script>
+        let width = 1000;
+        let height = 800;
+        let ctx = '';
+        let canvas = '';
+        
+        let init = function () {
+            canvas = document.querySelector('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            ctx = canvas.getContext('2d');
+            window.requestAnimationFrame(draw);
+            
+            //randomNumbers();
+        }
+        
+        let draw = function () {
+            //box
+            ctx.fillStyle = 'rgb(120, 120, 130)';
+            ctx.strokeStyle = 'rgb(255,255,255)';
+            ctx.fillRect(0, 0, width, height / 4);
+            ctx.fillRect(0, height * .75, width, height / 4);
+            
+            
+            window.requestAnimationFrame(draw);
+            console.log();
+        }
+        
+        let randomNumbers = function () {
+            let nums = [];
+            let closeWin = getRandomInt(2);
+            if (closeWin == 0) {
+                nums[0] = getRandomInt(6);
+                nums[1] = getRandomInt(6);
+                nums[2] = getRandomInt(6);
+                nums[3] = getRandomInt(6);
+                //return nums;
+            }
+            else {
+                let closeOne = getRandomInt(4);
+                let sameVal = getRandomInt(6);
+                switch (closeOne) {
+                case 0:
+                    nums[1] = sameVal;
+                    nums[2] = sameVal;
+                    nums[3] = sameVal;
+                    if (getRandomInt(2) == 0) {
+                        nums[0] = sameVal - 1;
+                    }
+                    else {
+                        nums[0] = sameVal + 1;
+                    }
+                    break;
+                case 1:
+                    nums[0] = sameVal;
+                    nums[2] = sameVal;
+                    nums[3] = sameVal;
+                    if (getRandomInt(2) == 0) {
+                        nums[1] = sameVal - 1;
+                    }
+                    else {
+                        nums[1] = sameVal + 1;
+                    }
+                    break;
+                case 2:
+                    nums[0] = sameVal;
+                    nums[1] = sameVal;
+                    nums[3] = sameVal;
+                    if (getRandomInt(2) == 0) {
+                        nums[2] = sameVal - 1;
+                    }
+                    else {
+                        nums[2] = sameVal + 1;
+                    }
+                    break;
+                case 3:
+                    nums[0] = sameVal;
+                    nums[1] = sameVal;
+                    nums[2] = sameVal;
+                    if (getRandomInt(2) == 0) {
+                        nums[3] = sameVal - 1;
+                    }
+                    else {
+                        nums[3] = sameVal + 1;
+                    }
+                    break;
+                }
+            }
+            console.log(nums);
+            if (closeWin == 1) {
+                console.log("This is a close win");
+            }
+            else {
+                console.log("RANDOM");
+            }
+        }
+        let getRandomInt = function (max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        
+        window.onload = init();
+    </script>
+</body>
+
+</html>
