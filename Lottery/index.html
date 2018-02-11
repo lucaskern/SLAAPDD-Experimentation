@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>    <style>
+        #RandomButton {
+            width: 200px;
+            height: 50px;
+            background-color: lightblue;
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 25px;
+            font-size: 20px;
+            font-weight: 800;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
 
+    
 <body>
     <canvas id="myCanvas" width="100" height="80" style="border:1px solid #d3d3d3;"> Your browser does not support the HTML5 canvas tag.</canvas>
     <script>
@@ -8,6 +25,8 @@
         let height = 800;
         let ctx = '';
         let canvas = '';
+        let nums = [];
+        let padding = 40;
         
         let init = function () {
             canvas = document.querySelector('canvas');
@@ -20,19 +39,48 @@
         }
         
         let draw = function () {
+            ctx.clearRect(0,0, width, height);
+            
             //box
             ctx.fillStyle = 'rgb(120, 120, 130)';
             ctx.strokeStyle = 'rgb(255,255,255)';
             ctx.fillRect(0, 0, width, height / 4);
             ctx.fillRect(0, height * .75, width, height / 4);
             
+//            let numString0 = num[0].toString();
+//            let numString1 = num[1].toString();
+//            let numString2 = num[2].toString();
+//            let numString3 = num[3].toString();
+//            
+//            ctx.font = "30px Arial";
+//            ctx.fillText(numStr0 100,10,height / 2);
+            
+            ctx.save();
+            
+            ctx.fillStyle = "rgb(0, 250, 50";
+            for (let i = 0; i < nums.length; i++) {
+                let numStr = nums[i].toString();
+                
+                ctx.font = "72px Arial";
+                if (i == 0) {
+                    ctx.fillText(numStr, 0 + padding,height / 2);   
+                } else if (i == 1) {
+                    ctx.fillText(numStr, width * .33 ,height / 2);
+                } else if (i == 2) {
+                    ctx.fillText(numStr, width * .66 ,height / 2);    
+                } else {
+                    ctx.fillText(numStr, width - padding * 2,height / 2);
+                }
+            }
+            
+            ctx.restore();
             
             window.requestAnimationFrame(draw);
             console.log();
         }
         
         let randomNumbers = function () {
-            let nums = [];
+            //let nums = [];
             let closeWin = getRandomInt(2);
             if (closeWin == 0) {
                 nums[0] = getRandomInt(6);
@@ -103,8 +151,17 @@
             return Math.floor(Math.random() * Math.floor(max));
         }
         
+        $("body").click(function(){
+            console.log("clicked");
+            randomNumbers(); 
+        });
+        
         window.onload = init();
     </script>
+    
+    <div id="RandomButton">
+        Click Me
+    </div>
 </body>
 
 </html>
